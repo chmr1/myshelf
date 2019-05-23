@@ -25,3 +25,7 @@ Route.get('books/:id', 'BookController.show').middleware(['findBook'])
 Route.post('books', 'BookController.store')
 Route.patch('books/:id', 'BookController.update').middleware(['findBook'])
 Route.delete('books/:id', 'BookController.destroy').middleware(['findBook'])
+
+// tags
+Route.get('shelves', 'ShelfController.index')
+Route.patch('shelves/:id', 'ShelfController.update').middleware(['findShelf'])

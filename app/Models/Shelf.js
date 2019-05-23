@@ -7,6 +7,10 @@ class Shelf extends Model {
   user () {
     return this.belongsTo('App/Models/User')
   }
+
+  books () {
+    return this.hasMany('App/Models/Book')
+  }
 }
 
 module.exports = Shelf
