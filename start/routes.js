@@ -18,3 +18,10 @@ const Route = use('Route')
 
 Route.post('/users', 'UserController.create')
 Route.post('/sessions', 'SessionController.create')
+
+// tags
+Route.get('/books', 'BookController.index')
+Route.get('books/:id', 'BookController.show').middleware(['findBook'])
+Route.post('books', 'BookController.store')
+Route.patch('books/:id', 'BookController.update').middleware(['findBook'])
+Route.delete('books/:id', 'BookController.destroy').middleware(['findBook'])
