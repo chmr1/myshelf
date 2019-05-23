@@ -55,6 +55,7 @@ class BookController {
    */
   async show ({ request, response }) {
     const { book } = request.post()
+    
     return response.status(200).json({
       message: 'Livro encontrado com sucesso.',
       data: book

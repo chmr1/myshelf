@@ -4,7 +4,6 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-const User = use('App/Models/User')
 const Shelf = use('App/Models/Shelf')
 
 /**
@@ -20,14 +19,28 @@ class ShelfController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ auth, response }) {
-    const user = await User.findBy('id', auth.user.id)
-    //const { id } = auth.user
-    const shelves = user.shelves().fetch()
-    //const shelves = shelf.books().withPivot('shelf_id').fetch()
+  async index ({ response }) {
+    const shelf = await Shelf.all()
     return response.status(200).json({
       message: 'Estante retornada com sucesso.',
-      data: shelves
+      data: shelf
+    })
+  }
+
+  /**
+   * Display a single book.
+   * GET books/:id
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async show ({ request, response }) {
+    const { shelf } = request.post()
+    return response.status(200).json({
+      message: 'Estante encontrada com sucesso.',
+      data: shelf
     })
   }
 
@@ -40,23 +53,21 @@ class ShelfController {
    * @param {Response} ctx.response
    */
   async update ({ request, response }) {
-    const { name, description, customer_id, project, tags } = request.post()
+    const { user_id, shelf, books } = request.post()
 
-    project.name = name || project.name
-    project.description = description || project.description
-    project.customer_id = customer_id || project.customer_id
+    shelf.user_id = user_id || shelf.user_id
 
-    await project.save()
+    await shelf.save()
 
-    if (tags && tags.length > 0) {
-      await project.tags().detach()
-      await project.tags().attach(tags)
-      project.tags = await project.tags().fetch()
+    if (books && books.length > 0) {
+      await shelf.books().detach()
+      await shelf.books().attach(books)
+      shelf.books = await shelf.books().fetch()
     }
 
     response.status(200).json({
-      message: 'Successfully updated this project.',
-      data: project
+      message: 'Estante atualizada com sucesso.',
+      data: shelf
     })
   }
 }

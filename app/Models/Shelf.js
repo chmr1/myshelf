@@ -9,7 +9,7 @@ class Shelf extends Model {
   }
 
   books () {
-    return this.hasMany('App/Models/Book')
+    return this.belongsToMany('App/Models/Book')
   }
 }
 
