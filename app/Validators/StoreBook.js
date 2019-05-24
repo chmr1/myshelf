@@ -22,7 +22,7 @@ class StoreBook {
       'title.max': 'O título do livro deverá ter no máximo 120 caracteres.',
       'subtitle.max': 'O subtítulo do livro deverá ter no máximo 120 caracteres.',
       'volume.integer': 'Apenas números inteiros são permitidos no campo volume.',
-      'number_page.integer': 'Apenas números inteiros são permitidos no campo número da página.',
+      'number_page.integer': 'Apenas números inteiros são permitidos no campo número de páginas.',
       'author.required': 'O nome do autor é obrigatório.',
       'author.min': 'O nome do autor deverá ter no mínimo 3 caracteres.',
       'author.max': 'O nome do autor deverá ter no máximo 120 caracteres.',

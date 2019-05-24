@@ -59,7 +59,7 @@ class BookController {
    */
   async show ({ request, response }) {
     const { book } = request.post()
-
+    const book = await Book.findOrFail(params.id)
     return response.status(200).json({
       message: 'Livro encontrado com sucesso.',
       data: book
@@ -98,8 +98,9 @@ class BookController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ request, response }) {
+  async destroy ({ params, request, response }) {
     const { book } = request.post()
+    const book = await Book.findOrFail(params.id)
     await book.delete()
     response.status(200).json({
       message: 'Livro excluído com sucesso.',
