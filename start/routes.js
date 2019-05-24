@@ -18,7 +18,7 @@ const Route = use('Route')
 
 // users
 Route.get('/users', 'UserController.index')
-Route.post('/users', 'UserController.create').validator("StoreBook")
+Route.post('/users', 'UserController.create').validator("StoreUser")
 Route.post('/sessions', 'SessionController.create')
 
 // books
