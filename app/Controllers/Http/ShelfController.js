@@ -11,8 +11,8 @@ const Shelf = use('App/Models/Shelf')
  */
 class ShelfController {
   /**
-   * Show a list of all books.
-   * GET books
+   * Show a list of all shelves.
+   * GET shelves
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -28,8 +28,8 @@ class ShelfController {
   }
 
   /**
-   * Display a single book.
-   * GET books/:id
+   * Display a single shelf.
+   * GET shelves/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -46,8 +46,8 @@ class ShelfController {
   }
 
   /**
-   * Update book details.
-   * PUT or PATCH books/:id
+   * Update shelf details.
+   * PUT or PATCH shelves/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -55,9 +55,7 @@ class ShelfController {
    */
   async update ({ request, response }) {
     const { user_id, shelf, books } = request.post()
-
     shelf.user_id = user_id || shelf.user_id
-
     await shelf.save()
 
     if (books && books.length > 0) {

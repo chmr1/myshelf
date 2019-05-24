@@ -73,15 +73,11 @@ class BookController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ request, response }) {
-    const { isbn, title, subtitle, volume, number_page, author, publishing_company, book } = request.post()
-    book.isbn = isbn || book.isbn
-    book.title = title || book.title
-    book.subtitle = subtitle || book.subtitle
-    book.volume = volume || book.volume
-    book.number_page = number_page || book.number_page
-    book.author = author || book.author
-    book.publishing_company = publishing_company || book.publishing_company
+  async update ({ params, request, response }) {
+    const book = await Book.findOrFail(params.id)
+    const data = request.only(['isbn', 'title', 'subtitle', 'volume', 'number_page', 'author', 'publishing_company'])
+
+    book.merge(data)
     await book.save()
     response.status(200).json({
       message: 'Livro atualizado com sucesso.',
