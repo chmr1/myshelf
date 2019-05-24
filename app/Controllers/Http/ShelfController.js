@@ -19,7 +19,7 @@ class ShelfController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response }) {
+  async index ({ response }) {
     const shelf = await Shelf.all()
     return response.status(200).json({
       message: 'Estante retornada com sucesso.',
@@ -84,7 +84,7 @@ class ShelfController {
     const shelf = await Shelf.findOrFail(params.id)
     await shelf.delete()
     response.status(200).json({
-      message: 'Estante excluída com sucesso.',
+      message: 'Estante excluÃ­da com sucesso.',
       deleted: true
     })
   }

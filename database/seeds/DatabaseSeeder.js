@@ -18,7 +18,7 @@ const BookShelfSeeder = require('./BookShelfSeeder')
 
 class DatabaseSeeder {
   async run() {
-    await UserSeeder.run()
+    //await UserSeeder.run()
     await ShelfSeeder.run()
     await BookSeeder.run()
     await BookShelfSeeder.run()
