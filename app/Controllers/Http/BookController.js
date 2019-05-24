@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Book = use('App/Models/Book')
+const { validate } = use('Validator')
 
 /**
  * Resourceful controller for interacting with books
@@ -36,12 +37,15 @@ class BookController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+
     const data = await request.only(['isbn', 'title', 'subtitle', 'volume', 'number_page', 'author', 'publishing_company'])
     const book = await Book.create(data)
+
     return response.status(201).json({
       message: 'Livro cadastrado com sucesso.',
       data: book
     })
+
   }
 
   /**
@@ -55,7 +59,7 @@ class BookController {
    */
   async show ({ request, response }) {
     const { book } = request.post()
-    
+
     return response.status(200).json({
       message: 'Livro encontrado com sucesso.',
       data: book
