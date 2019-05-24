@@ -19,7 +19,7 @@ class ShelfController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ response }) {
+  async index ({ request, response }) {
     const shelf = await Shelf.all()
     return response.status(200).json({
       message: 'Estante retornada com sucesso.',
@@ -36,8 +36,9 @@ class ShelfController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ request, response }) {
-    const { shelf } = request.post()
+  async show ({ params, response }) {
+    const shelf = await Shelf.findOrFail(params.id)
+    await shelf.load('books')
     return response.status(200).json({
       message: 'Estante encontrada com sucesso.',
       data: shelf
