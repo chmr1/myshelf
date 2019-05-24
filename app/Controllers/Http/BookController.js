@@ -57,8 +57,7 @@ class BookController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ request, response }) {
-    const { book } = request.post()
+  async show ({ params, response }) {
     const book = await Book.findOrFail(params.id)
     return response.status(200).json({
       message: 'Livro encontrado com sucesso.',
@@ -98,8 +97,7 @@ class BookController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
-    const { book } = request.post()
+  async destroy ({ params, response }) {
     const book = await Book.findOrFail(params.id)
     await book.delete()
     response.status(200).json({
