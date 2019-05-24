@@ -6,10 +6,10 @@ const Schema = use('Schema')
 class BookShelfSchema extends Schema {
   up () {
     this.create('book_shelf', (table) => {
+      table.bigIncrements()
       table
         .bigInteger('shelf_id')
         .unsigned()
-        .index('shelf_id')
       table
         .foreign('shelf_id')
         .references('shelves.id')
@@ -17,7 +17,6 @@ class BookShelfSchema extends Schema {
       table
         .bigInteger('book_id')
         .unsigned()
-        .index('book_id')
       table
         .foreign('book_id')
         .references('books.id')
