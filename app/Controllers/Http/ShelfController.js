@@ -71,6 +71,23 @@ class ShelfController {
       data: shelf
     })
   }
+
+  /**
+   * Delete a shelf with id.
+   * DELETE shelves/:id
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   */
+  async destroy ({ params, response }) {
+    const shelf = await Shelf.findOrFail(params.id)
+    await shelf.delete()
+    response.status(200).json({
+      message: 'Estante excluída com sucesso.',
+      deleted: true
+    })
+  }
 }
 
 module.exports = ShelfController

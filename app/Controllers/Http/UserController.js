@@ -3,6 +3,14 @@
 const User = use('App/Models/User')
 
 class UserController {
+  async index ({ response }) {
+    const users = await User.all()
+    return response.status(200).json({
+      message: 'Usuários retornados com sucesso.',
+      data: users
+    })
+  }
+
   async create ({ request, response }) {
     const data = request.only(['username', 'email', 'password'])
     const user = await User.create(data)
