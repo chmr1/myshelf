@@ -2,7 +2,6 @@
 
 class StoreUser {
   get rules () {
-    const userId = this.ctx.params.id
     return {
       username: 'required|unique:users|min:3|max:120',
       email: 'required|email|unique:users',

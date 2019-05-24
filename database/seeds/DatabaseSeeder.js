@@ -21,7 +21,7 @@ class DatabaseSeeder {
     //await UserSeeder.run()
     //await ShelfSeeder.run()
     //await BookSeeder.run()
-    await BookShelfSeeder.run()
+    //await BookShelfSeeder.run()
   }
 }
 

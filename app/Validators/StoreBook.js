@@ -4,7 +4,7 @@ class StoreBook {
   get rules() {
     return {
       isbn: 'number',
-      title: `required|unique:books|min:3|max:120`,
+      title: 'required|unique:books|min:3|max:120',
       subtitle: 'max:120',
       volume: 'integer',
       number_page: 'integer',
