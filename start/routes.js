@@ -28,7 +28,7 @@ Route.post('/sessions', 'SessionController.create')
 Route.get('/books', 'BookController.index')
 Route.get('books/:id', 'BookController.show').middleware(['findBook'])
 Route.post('books', 'BookController.store').validator("StoreBook")
-Route.patch('books/:id', 'BookController.update').middleware(['findBook']).validator("StoreBook")
+Route.patch('books/:id', 'BookController.update').middleware(['findBook']).validator("UpdateBook")
 Route.delete('books/:id', 'BookController.destroy').middleware(['findBook'])
 
 // shelves
