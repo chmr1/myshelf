@@ -2,9 +2,10 @@
 
 class StoreBook {
   get rules() {
+    const bookId = this.ctx.params.id
     return {
       isbn: 'number',
-      title: 'required|unique:books|min:3|max:120',
+      title: `required|unique:books,title,id,${bookId}|min:3|max:120`,
       subtitle: 'max:120',
       volume: 'integer',
       number_page: 'integer',

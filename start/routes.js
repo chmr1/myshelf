@@ -16,6 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+// index
+Route.get('/', () => 'Welcome!!!')
+
 // users
 Route.get('/users', 'UserController.index')
 Route.post('/users', 'UserController.create').validator("StoreUser")
@@ -25,7 +28,7 @@ Route.post('/sessions', 'SessionController.create')
 Route.get('/books', 'BookController.index')
 Route.get('books/:id', 'BookController.show').middleware(['findBook'])
 Route.post('books', 'BookController.store').validator("StoreBook")
-Route.patch('books/:id', 'BookController.update').middleware(['findBook'])
+Route.patch('books/:id', 'BookController.update').middleware(['findBook']).validator("StoreBook")
 Route.delete('books/:id', 'BookController.destroy').middleware(['findBook'])
 
 // shelves

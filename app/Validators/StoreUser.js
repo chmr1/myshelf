@@ -2,6 +2,7 @@
 
 class StoreUser {
   get rules () {
+    const userId = this.ctx.params.id
     return {
       username: 'required|unique:users|min:3|max:120',
       email: 'required|email|unique:users',
@@ -15,11 +16,17 @@ class StoreUser {
       'username.unique': 'Um usuário com este nome já existe.',
       'username.min': 'O nome do usuário deverá ter no mínimo 3 caracteres.',
       'username.max': 'O nome do usuário deverá ter no máximo 120 caracteres.',
-      'email.required': 'You must provide a email address.',
-      'email.email': 'You must provide a valid email address.',
-      'email.unique': 'This email is already registered.',
-      'password.required': 'You must provide a password'
+      'email.required': 'O e-mail é obrigatório.',
+      'email.email': 'Você deve informar um endereço de e-mail válido.',
+      'email.unique': 'Um usuário com este endereço de e-mail já existe.',
+      'password.required': 'A senha é obrigatória.'
     }
+  }
+
+  async fails(errorMessages) {
+    return this.ctx.response.status(400).json({
+      message: errorMessages[0].message
+    });
   }
 }
 
