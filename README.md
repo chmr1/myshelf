@@ -1,3 +1,5 @@
+[![Heroku App Status](http://heroku-shields.herokuapp.com/myshelf-chmr1)](https://myshelf-chmr1.herokuapp.com)
+
 # My Shelf API Application
 
 API criada para a disciplina de ***Desenvolvimento de App's Híbridos I***, na especialização de ***Dispositivos Móveis***. Utilizada como ferramenta base para o gerenciamento de livros pessoais, onde o usuário após autenticado, poderá organizar seus livros vinculando-os em sua estante, futuramente serão adicionadas novas funcionalidades.
