@@ -26,20 +26,22 @@ npm install
 
 Para a persistência dos dados, será necessário criar o banco de dados e editar o arquivo de configuração. Neste projeto já foram instalados as dependências para os bancos ***Postgres*** e ***MySql***.
 
-Criando o arquivo .env, para informar os dados de acesso ao banco:
+> Criando o arquivo .env, para informar os dados de acesso ao banco:
 ```js
 adonis key:generate
 ```
 
-DB_CONNECTION=pg
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_USER=postgres
-DB_PASSWORD=postgres
-DB_DATABASE=dbmyshelf
-HASH_DRIVER=bcrypt
+```
+DB_CONNECTION=pg  
+DB_HOST=127.0.0.1  
+DB_PORT=5432  
+DB_USER=postgres  
+DB_PASSWORD=postgres  
+DB_DATABASE=dbmyshelf  
+HASH_DRIVER=bcrypt  
+```
 
-Executando o migration para a criação das tabelas:
+> Executando o migration para a criação das tabelas:
 ```js
 adonis migration:run
 ```
