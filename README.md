@@ -31,7 +31,6 @@ Para a persistência dos dados, será necessário criar o banco de dados e edita
 adonis key:generate
 ```
 
-```
 DB_CONNECTION=pg  
 DB_HOST=127.0.0.1  
 DB_PORT=5432  
@@ -39,7 +38,6 @@ DB_USER=postgres
 DB_PASSWORD=postgres  
 DB_DATABASE=dbmyshelf  
 HASH_DRIVER=bcrypt  
-```
 
 > Executando o migration para a criação das tabelas:
 ```js
