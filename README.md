@@ -1,28 +1,39 @@
-# Adonis API application
+# My Shelf API Application
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+API criada para a disciplina de ***Desenvolvimento de App's Híbridos I***, na especialização de ***Dispositivos Móveis***. Utilizada como ferramenta base para o gerenciamento de livros pessoais, onde o usuário após autenticado, poderá organizar seus livros vinculando-os em sua estante, futuramente serão adicionadas novas funcionalidades.
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+### Configuração
 
-## Setup
+AdonisJs
 
-Use the adonis command to install the blueprint
+Através do Adonisjs CLI serão executados os comandos para instalação das dependências do AdonisJs, para instalá-lo, execute o comando:
 
-```bash
-adonis new yardstick --api-only
+```js
+npm i -g @adonisjs/cli
 ```
 
-or manually clone the repo and then run `npm install`.
+### Projeto
 
+Clone o projeto para uma pasta local, acesse a pasta e execute o comando:
 
-### Migrations
+```js
+npm install
+```
 
-Run the following command to run startup migrations.
+### Banco de Dados
+
+Para a persistência dos dados, será necessário criar o banco de dados. Neste projeto já foram instalados as dependências para os bancos ***Postgres*** e ***MySql***, logo em seguida deverá ser executado o migration, para criação das tabelas.
 
 ```js
 adonis migration:run
 ```
+
+### Servindo a Aplicação
+
+Uma vez completado o processo de instalação e configuração, a aplicação pode ser servida executando o comando abaixo:
+
+```js
+adonis serve --dev
+```
+
+Em breve documentação da API
