@@ -6,7 +6,7 @@ API criada para a disciplina de ***Desenvolvimento de App's Híbridos I***, na e
 
 ## Configuração
 
-###AdonisJs
+### AdonisJs
 
 Através do Adonisjs CLI serão executados os comandos para instalação das dependências do AdonisJs, para instalá-lo, execute o comando:
 
