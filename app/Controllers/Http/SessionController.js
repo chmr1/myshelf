@@ -3,7 +3,7 @@
 const User = use('App/Models/User')
 
 class SessionController {
-  async create ({ request, auth }) {
+  async create ({ request, response, auth }) {
     const { email, password } = request.all()
     await auth.attempt(email, password)
 
@@ -13,7 +13,10 @@ class SessionController {
     let token = await auth.generate(user)
     Object.assign(user, token)
 
-    return user
+    response.status(200).json({
+      message: 'Usuário autenticado com sucesso.',
+      data: user
+    })
   }
 }
 
