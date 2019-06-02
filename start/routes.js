@@ -22,6 +22,7 @@ Route.get('/', () => 'Welcome!!!')
 // users
 Route.get('/users', 'UserController.index')
 Route.post('/users', 'UserController.create').validator("StoreUser")
+Route.get('users/:id', 'UserController.show')
 Route.post('/sessions', 'SessionController.create')
 
 // books

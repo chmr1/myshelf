@@ -20,6 +20,24 @@ class UserController {
       data: user
     })
   }
+
+  /**
+   * Display a single shelf.
+   * GET shelves/:id
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async show ({ params, response }) {
+    const user = await User.findOrFail(params.id)
+    await user.load('shelves')
+    return response.status(200).json({
+      message: 'Usuário encontrado com sucesso.',
+      data: user
+    })
+  }
 }
 
 module.exports = UserController
