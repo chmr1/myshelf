@@ -4,9 +4,9 @@
 
 API criada para a disciplina de ***Desenvolvimento de App's Híbridos I***, na especialização de ***Dispositivos Móveis***. Utilizada como ferramenta base para o gerenciamento de livros pessoais, onde o usuário após autenticado, poderá organizar seus livros vinculando-os em sua estante, futuramente serão adicionadas novas funcionalidades.
 
-### Configuração
+## Configuração
 
-AdonisJs
+### AdonisJs
 
 Através do Adonisjs CLI serão executados os comandos para instalação das dependências do AdonisJs, para instalá-lo, execute o comando:
 
